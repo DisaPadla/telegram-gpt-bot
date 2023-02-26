@@ -14,10 +14,10 @@ export default function(req, res) {
         apiKey: process.env.API_KEY,
       });
       const result = await api.sendMessage(ctx.message.text);
-      res.send(result.text)
+      ctx.reply(result.text)
     });
   } catch (e) {
     res.send(`Error: ${JSON.stringify(e)}`);
   }
-  // res.send(`OK ${JSON.stringify(req.body)}`);
+  res.send(`OK ${JSON.stringify(req.body)}`);
 }
