@@ -13,10 +13,11 @@ export default function(req, res) {
       const api = new ChatGPTAPI({
         apiKey: process.env.API_KEY,
       });
-      const res = await api.sendMessage(ctx.message.text);
+      const result = await api.sendMessage(ctx.message.text);
+      res.send(result.text)
     });
   } catch (e) {
     res.send(`Error: ${JSON.stringify(e)}`);
   }
-  res.send('OK');
+  // res.send(`OK ${JSON.stringify(req.body)}`);
 }
