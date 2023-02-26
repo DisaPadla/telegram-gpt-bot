@@ -2,7 +2,7 @@ import { Telegraf } from 'telegraf';
 import { message } from 'telegraf/filters';
 import { ChatGPTAPI } from 'chatgpt';
 import { config } from 'dotenv';
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 
 config();
 const SECRET_HASH = process.env.SECRET_HASH;
