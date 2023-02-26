@@ -7,15 +7,17 @@ config();
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
+bot.on(message('text'), async (ctx) => {
+  const api = new ChatGPTAPI({
+    apiKey: process.env.API_KEY,
+  });
+  const result = await api.sendMessage(ctx.message.text);
+  ctx.reply(result.text)
+});
+
 export default function(req, res) {
   try {
-    bot.on(message('text'), async (ctx) => {
-      const api = new ChatGPTAPI({
-        apiKey: process.env.API_KEY,
-      });
-      const result = await api.sendMessage(ctx.message.text);
-      ctx.reply(result.text)
-    });
+
   } catch (e) {
     res.send(`Error: ${JSON.stringify(e)}`);
   }
