@@ -33,5 +33,5 @@ export default async function(req, res) {
   } catch (e) {
     res.send(`Error: ${JSON.stringify(e)}`);
   }
-  res.send(`OK ${JSON.stringify(req)}`);
+  res.send('OK');
 }
