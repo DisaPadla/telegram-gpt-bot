@@ -16,7 +16,7 @@ export default function(req, res) {
       const res = await api.sendMessage(ctx.message.text);
     });
   } catch (e) {
-
+    res.send(`Error: ${JSON.stringify(e)}`);
   }
   res.send('OK');
 }
