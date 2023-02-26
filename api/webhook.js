@@ -8,11 +8,11 @@ const SECRET_HASH = process.env.SECRET_HASH;
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.on(message('text'), async (ctx) => {
-  // const api = new ChatGPTAPI({
-  //   apiKey: process.env.API_KEY,
-  // });
-  // const result = await api.sendMessage(ctx.message.text);
-  ctx.reply('asdasdsad');
+  const api = new ChatGPTAPI({
+    apiKey: process.env.API_KEY,
+  });
+  const result = await api.sendMessage(ctx.message.text);
+  ctx.reply(result.text);
 });
 
 export default async function(req, res) {
