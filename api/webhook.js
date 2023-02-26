@@ -18,5 +18,5 @@ export default function(req, res) {
   } catch (e) {
 
   }
-  res.send('OK');
+  res.send(`OK ${process.env.BOT_TOKEN}`);
 }
