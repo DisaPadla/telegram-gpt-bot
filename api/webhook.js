@@ -12,7 +12,7 @@ bot.on(message('text'), async (ctx) => {
     apiKey: process.env.API_KEY,
   });
   const result = await api.sendMessage(ctx.message.text);
-  ctx.reply(result.text);
+  await ctx.reply(result.text);
 });
 
 export default async function(req, res) {
