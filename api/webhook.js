@@ -2,6 +2,7 @@ import { Telegraf } from 'telegraf';
 import { message } from 'telegraf/filters';
 import { ChatGPTAPI } from 'chatgpt';
 import { config } from 'dotenv';
+import fetch from 'node-fetch';
 
 config();
 const SECRET_HASH = process.env.SECRET_HASH;
@@ -32,7 +33,7 @@ export default async function(req, res) {
     }
   } catch (e) {
     console.error("Error sending message");
-    console.log(error.toString());
+    console.log(e.toString());
   }
   res.status(200).send('OK');
 }
